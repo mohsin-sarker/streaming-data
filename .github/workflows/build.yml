@@ -24,7 +24,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - name: Checkout
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
       - name: Python Setup
@@ -33,11 +33,16 @@ jobs:
           python-version: '3.12'
       
       # Install dependencies and run vulnerability checks
-      - name: Install dependencies
+      - name: Install Dependencies
         run: |
           make create-environment
           source venv/bin/activate
           make requirements
           make dev-setup
+
       - name: Run All Checks
-        run: make run-checks
+        env:
+          SAFETY_API_KEY: ${{ secrets.SAFETY_API_KEY }}
+        run: |
+          source venv/bin/activate
+          make run-checks
