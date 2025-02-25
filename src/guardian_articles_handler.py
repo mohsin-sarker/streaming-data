@@ -1,11 +1,13 @@
 import requests
 import json
 import boto3
+import logging
 from botocore import exceptions
 
 
-def extract_handler(event, response):
-    pass
+def guardian_articles_handler(event, response):
+    logger = logging.getLogger('guardian articles logger:')
+    logger.info('Guardian article has been invoked!')
 
 
 def get_guardian_api_key(secret_name, region='eu-west-2'):
