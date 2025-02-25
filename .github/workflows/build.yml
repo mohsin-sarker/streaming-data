@@ -76,7 +76,7 @@ jobs:
 
       - name: Terraform init
         working-directory: terraform
-        run: terraform init -migrate-state
+        run: terraform init -reconfigure
 
       - name: Terraform Plan
         working-directory: terraform
