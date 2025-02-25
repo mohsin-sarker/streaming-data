@@ -72,7 +72,7 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
       
       - name: Set Guardian API KEY Environment Variable
-        run: echo "TF_VAR_guardian_api_key=${{ secrets.GUARDIAN_API_KEY }}"
+        run: echo "TF_VAR_guardian_api_key=${{ secrets.GUARDIAN_API_KEY }}" >> $GITHUB_ENV
 
       - name: Terraform init
         working-directory: terraform
