@@ -4,7 +4,7 @@ import json
 import os
 from moto import mock_aws
 from unittest.mock import Mock, patch
-from src.extract_handler import get_guardian_api_key
+from guardian_articles_handler import get_guardian_api_key
 
 
 
